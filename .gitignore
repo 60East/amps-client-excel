@@ -1,0 +1,4 @@
+*.suo
+publish/*
+*/obj/*
+
