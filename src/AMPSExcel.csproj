@@ -40,7 +40,7 @@
     <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <PublishUrl>publish\.\</PublishUrl>
-    <InstallUrl>file://C/users/dnoor/amps-client/excel/publish\</InstallUrl>
+    <InstallUrl>file://C/users/user/amps-client/excel/publish\</InstallUrl>
     <TargetCulture>en</TargetCulture>
     <ApplicationVersion>4.3.0.0</ApplicationVersion>
     <AutoIncrementApplicationRevision>false</AutoIncrementApplicationRevision>
@@ -150,13 +150,7 @@
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>AMPSExcel_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>0CB55BBCF126B904B67BE51CBABFC2C343C4F119</ManifestCertificateThumbprint>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <!--
     This section specifies references for the project.
