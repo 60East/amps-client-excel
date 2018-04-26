@@ -77,7 +77,8 @@ namespace AMPSExcel
             {*/
             string sowKey = msg.getSowKey();
             // if an OOF, remove the row if we know of it
-            if (msg.Command == AMPS.Client.Message.Commands.OOF && _rows.ContainsKey(sowKey))
+            Message.Commands commandType = msg.Command;
+            if (commandType == AMPS.Client.Message.Commands.OOF && _rows.ContainsKey(sowKey))
             {
                 int theRow = _rows[sowKey];
 
@@ -91,8 +92,9 @@ namespace AMPSExcel
                 _rows.Remove(sowKey);
                 _empty.Enqueue(theRow);
             }
-            else if (msg.Command == AMPS.Client.Message.Commands.Publish || msg.Command == AMPS.Client.Message.Commands.DeltaPublish ||
-                    msg.Command == AMPS.Client.Message.Commands.SOW)
+            else if (commandType == AMPS.Client.Message.Commands.Publish ||
+                     commandType == AMPS.Client.Message.Commands.DeltaPublish ||
+                     commandType == AMPS.Client.Message.Commands.SOW)
             {
                 int thisRow = 0;
                 // try and find the row

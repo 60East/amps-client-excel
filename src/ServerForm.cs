@@ -31,7 +31,17 @@ namespace AMPSExcel
                 }
                 sb.Append('@');
             }
-            sb.AppendFormat("{0}:{1}/{2}", txtHostName.Text, txtPort.Text, cmbProtocol.Text);
+            string protocol = cmbProtocol.Text;
+            string messageType = cmbMessageType.Text;
+
+            if (protocol == "amps" && messageType.Length > 0)
+            {
+                sb.AppendFormat("{0}:{1}/{2}/{3}", txtHostName.Text, txtPort.Text, protocol, messageType);
+            }
+            else
+            {
+                sb.AppendFormat("{0}:{1}/{2}", txtHostName.Text, txtPort.Text, protocol);
+            }
             return sb.ToString();
         }
 
@@ -96,6 +106,14 @@ namespace AMPSExcel
             {
                 lblPassword.Enabled = lblUserName.Enabled =
                     txtPassword.Enabled = txtUserName.Enabled = false;
+            }
+            if (cmbProtocol.Text == "amps")
+            {
+                cmbMessageType.Enabled = true;
+            }
+            else
+            {
+                cmbMessageType.Enabled = false;
             }
         }
 
